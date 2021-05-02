@@ -23,7 +23,7 @@ function prepareDistrictURL(district_id, provided_min_age) {
 
 	base_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id="+ district_id + "&date=";
 
-	start_date = "2021-05-02";
+	start_date = new Date().toISOString().slice(0, 10);
 	end_date   = "2021-07-30";
 
 	dates = getDates(new Date(start_date), new Date(end_date));
@@ -37,7 +37,6 @@ function prepareDistrictURL(district_id, provided_min_age) {
 		$("#no_center_available").hide()
 		$(".main-card:first").hide()
     } else {
-		console.log(result);
     	$("#no_center_available").show()
     }
 }
@@ -108,7 +107,11 @@ function getDates(startDate, stopDate) {
     var currentDate = startDate;
     while (currentDate <= stopDate) {
     	var d = new Date (currentDate)
-    	var datestring = d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear();
+    	year  = d.getFullYear();
+		month = (d.getMonth() + 1).toString().padStart(2, "0");
+		day   = d.getDate().toString().padStart(2, "0");
+
+    	var datestring = day + '-' + month + '-' + year;
 
         dateArray.push(datestring);
         currentDate = currentDate.addDays(7);
