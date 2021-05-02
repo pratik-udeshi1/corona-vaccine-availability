@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://rawgit.com/select2/select2/master/dist/js/select2.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://rawgit.com/select2/select2/master/dist/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/cards.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="main-container" style="margin-top: 50px;">
+
+		<h3>Find 18+ Vaccine center with Available slots</h3><br>
+
+			<div class="form-group">
+				<select id="states" style="width: 300px;" onChange="populateDistrict(this.value);"></select>
+			</div>
+
+			<div class="form-group">
+				<select name="district" id="district" style="width: 300px;">
+				    <option value="" disabled selected>Select</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<button type="button" class="btn btn-success provided_min_age" value="18">Find 18+ Centers</button>
+				<button type="button" class="btn btn-info provided_min_age" value="45">Find 45+ Centers</button>
+			</div>
+		</div>
+	</div>
+
+
+<div id="no_center_available" class="container" style="margin-top: 50px; display: none;">
+    <h1>No Center available for the provided district</h1>
+</div>
+
+<div class="container">
+    <div class="row" id="main-card-div">
+        <div class="col-sm-6 col-md-4 col-lg-3 mt-4 main-card">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Center Name</h4>
+                    <div class="meta">
+                        <a href="#"><b>Address: </b>
+                            <span class="card-address"></span></a>
+                    </div>
+                    <div class="card-text">
+                        Date: <span class="card-date"></span>
+                    </div>
+                    <div class="card-text">
+                        Min Age: <b> <span class="card-min-age"></span></b>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="float-right">Fees:
+                        <b><span class="card-fees" style="font-size: 16px; color: Darkgreen;"></span></b>
+                    </span>
+                    <span><i class=""></i>Available Slots:
+                        <b><span class="card-slots" style="font-size: 16px; color: Grey;"></span></b>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="get_availability.js"></script>
+
+</html>
