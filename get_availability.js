@@ -23,7 +23,7 @@ function prepareDistrictURL(district_id, provided_min_age) {
 
 	base_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id="+ district_id + "&date=";
 
-	start_date = "2021-05-01";
+	start_date = "2021-05-02";
 	end_date   = "2021-07-30";
 
 	dates = getDates(new Date(start_date), new Date(end_date));
