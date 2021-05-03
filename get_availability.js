@@ -3,6 +3,8 @@ var center_available = [];
 
 $(".provided_min_age").click(function() {
 
+	$('#loader').show();
+
 	center_available = [];
 
     district_id = $('#district').val()
@@ -21,7 +23,7 @@ $(".provided_min_age").click(function() {
 
 function prepareDistrictURL(district_id, provided_min_age) {
 
-	base_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id="+ district_id + "&date=";
+	base_url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id="+ district_id + "&date=";
 
 	start_date = new Date().toISOString().slice(0, 10);
 	end_date   = "2021-07-30";
@@ -78,6 +80,7 @@ function getVaccineAvailability(final_url, provided_min_age = 18) {
             	center_available.push(1)
 
                 address = `${block}, ${district}, ${state},  ${pincode}`
+                card_map_link = "https://www.google.co.in/maps/search/" + center_name + ", "+ address
 
                 var cards = $(".main-card:first").clone()
                 $(cards).find(".card-title").html(center_name);
@@ -86,6 +89,7 @@ function getVaccineAvailability(final_url, provided_min_age = 18) {
                 $(cards).find(".card-address").html(address);
                 $(cards).find(".card-slots").html(capacity);
                 $(cards).find(".card-fees").html(fees);
+                $(cards).find(".card-map-link").attr('href', card_map_link);
 
                 $(cards).show()
                 $(cards).appendTo($("#main-card-div"))
