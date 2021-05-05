@@ -35,7 +35,7 @@ function prepareDistrictURL(district_id, provided_min_age) {
 		result = getVaccineAvailability(final_url, provided_min_age)
 	}
 
-	if (result.indexOf(1) > -1) {
+	if (result.indexOf(true) > -1) {
 		$("#no_center_available").hide()
 		$(".main-card:first").hide()
     } else {
@@ -78,7 +78,7 @@ function getVaccineAvailability(final_url, provided_min_age = 18) {
 
             	$(".main-card").show()
 
-            	center_available.push(1)
+            	center_available.push(true)
 
                 address = `${block}, ${district}, ${state},  ${pincode}`
                 card_map_link = "https://www.google.co.in/maps/search/" + center_name + ", "+ address
