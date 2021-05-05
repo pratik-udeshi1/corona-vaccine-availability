@@ -71,6 +71,7 @@ function getVaccineAvailability(final_url, provided_min_age = 18) {
 
             min_age = session_details[j]['min_age_limit']
             capacity = session_details[j]['available_capacity']
+            vaccine_name = session_details[j]['vaccine']
             date = session_details[j]['date']
 
             if (min_age == provided_min_age && capacity > 0) {
@@ -86,6 +87,7 @@ function getVaccineAvailability(final_url, provided_min_age = 18) {
                 $(cards).find(".card-title").html(center_name);
                 $(cards).find(".card-date").html(date);
                 $(cards).find(".card-min-age").html(min_age);
+                $(cards).find(".card-vaccine-name").html(vaccine_name);
                 $(cards).find(".card-address").html(address);
                 $(cards).find(".card-slots").html(capacity);
                 $(cards).find(".card-fees").html(fees);
